@@ -101,7 +101,7 @@ export default class Detail extends Component {
             new_deaths,
             new_cases,
             serious_critical,
-            cases_per_1m } = route.params;
+            cases_per_1m, date } = route.params;
 
         var recoveredNum = parseFloat(recovered.split(',').join(''));
         var deathsNum = parseFloat(deaths.split(',').join(''));
@@ -146,9 +146,7 @@ export default class Detail extends Component {
         ]
         
         var lineChart = <Text></Text>;
-        console.log(this.state.dataSource)
         if(this.state.dataSource != undefined){
-            console.log('entrou')
             lineChart = <View style={styles.imageContainer}>
                 <TouchableOpacity onPress={this.getDataArray.bind(this)} >
                     <Image source={require('./line.png')} style={styles.imagestyle} />
@@ -198,6 +196,9 @@ export default class Detail extends Component {
                     </View>
                 </View>
                 {lineChart}      
+                <Text style={{ textAlign: 'center', marginTop: 25, marginBottom: 5, color: '#333'}}>
+                    Última Atualização: {date} GMT
+                </Text>
             </ScrollView>
         );
     }
@@ -205,7 +206,7 @@ export default class Detail extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fafafa'
+        backgroundColor: '#fafafa',
     },
     list: {
         padding: 20
@@ -270,7 +271,8 @@ const styles = StyleSheet.create({
         textAlign:'center',
         fontSize: 17,
         padding:5,
-        marginBottom:10
+        marginBottom:10,
+        color: '#333'
     },
     detailContainer:{
         margin: 10,
@@ -278,6 +280,6 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderRadius: 20,
         borderColor: '#ddd',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     }
 });

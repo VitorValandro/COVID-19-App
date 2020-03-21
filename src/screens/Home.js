@@ -119,7 +119,8 @@ export default class App extends Component {
                     new_deaths: item.new_deaths,
                     new_cases: item.new_cases,
                     serious_critical: item.serious_critical,
-                    cases_per_1m: item.total_cases_per_1m_population
+                    cases_per_1m: item.total_cases_per_1m_population,
+                    date: this.state.dateOfData
                   });
                 }}>
                     <Text style={styles.countryButtonText}>Detalhes >></Text>
@@ -128,8 +129,8 @@ export default class App extends Component {
           )}
           keyExtractor={({ country_name }, index) => country_name}
         />
-        <Text>
-            Data:{this.state.dateOfData}
+        <Text style={{textAlign:'center'}}>
+            Última Atualização: {this.state.dateOfData} GMT
         </Text>
       </View>
     );

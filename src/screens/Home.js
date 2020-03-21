@@ -102,23 +102,27 @@ export default class App extends Component {
           contentContainerStyle={styles.list}
           data={this.state.dataSource}
           renderItem={({ item }) => (
-            <View style={styles.productContainer}>
-                <Text style={styles.productTitle}>{translate.EnToPt(item.country_name)}</Text>
-                <Text style={styles.productDescription}>Casos: {item.cases}</Text>
-                <Text style={styles.productDescription}>Casos ativos: {item.active_cases}</Text>
-                <Text style={styles.productDescription}>Recuperações: {item.total_recovered}</Text>
-                <Text style={styles.productDescription}>Óbitos: {item.deaths}</Text>
+            <View style={styles.countryContainer}>
+                <Text style={styles.countryTitle}>{translate.EnToPt(item.country_name)}</Text>
+                <Text style={styles.countryDescription}>Casos: {item.cases}</Text>
+                <Text style={styles.countryDescription}>Casos ativos: {item.active_cases}</Text>
+                <Text style={styles.countryDescription}>Recuperações: {item.total_recovered}</Text>
+                <Text style={styles.countryDescription}>Óbitos: {item.deaths}</Text>
 
-                <TouchableOpacity style={styles.productButton} onPress={() => {
+                <TouchableOpacity style={styles.countryButton} onPress={() => {
                   navigation.navigate('Detail',{
-                    country: translate.EnToPt(item.country_name),
+                    country: item.country_name,
                     cases: item.cases,
                     active_cases: item.active_cases,
                     recovered: item.total_recovered,
-                    deaths: item.deaths
+                    deaths: item.deaths,
+                    new_deaths: item.new_deaths,
+                    new_cases: item.new_cases,
+                    serious_critical: item.serious_critical,
+                    cases_per_1m: item.total_cases_per_1m_population
                   });
                 }}>
-                    <Text style={styles.productButtonText}>Detalhes >></Text>
+                    <Text style={styles.countryButtonText}>Detalhes >></Text>
                 </TouchableOpacity>
             </View>
           )}
@@ -140,7 +144,7 @@ const styles = StyleSheet.create({
     list:{
         padding:20
     },
-    productContainer:{
+    countryContainer:{
         backgroundColor:'#fff',
         borderWidth: 1,
         borderColor: '#ddd',
@@ -148,19 +152,19 @@ const styles = StyleSheet.create({
         padding:20,
         marginBottom:20
     },
-    productTitle:{
+    countryTitle:{
         fontSize: 18,
         fontWeight: 'bold',
         color: '#333'
     },
-    productDescription:{
+    countryDescription:{
         fontSize:16,
         color: '#555',
         marginTop:5,
         lineHeight: 24
     },
 
-    productButtonText:{
+    countryButtonText:{
         fontSize:16,
         textAlign: 'right',
         color: '#f4511e',

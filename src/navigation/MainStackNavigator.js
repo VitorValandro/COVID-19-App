@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import * as translate from '../screens/translation.js';
 
 import Home from '../screens/Home'
 import Detail from '../screens/Detail'
@@ -30,7 +31,7 @@ function MainStackNavigator() {
                     name='Detail'
                     component={Detail}
                     options={({ route }) => ({
-                        title: route.params.country
+                        title: translate.EnToPt(route.params.country)
                     })}
                 />
             </Stack.Navigator>

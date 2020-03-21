@@ -146,6 +146,7 @@ export default class Detail extends Component {
         ]
         
         var lineChart = <Text></Text>;
+        console.log(this.state.dataSource)
         if(this.state.dataSource != undefined){
             lineChart = <View style={styles.imageContainer}>
                 <TouchableOpacity onPress={this.getDataArray.bind(this)} >

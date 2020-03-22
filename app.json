@@ -1,17 +1,29 @@
 {
-  "name": "covid",
-  "displayName": "covid",
+  "name": "Estatísticas COVID-19",
+  "displayName": "Estatísticas COVID-19",
   "expo": {
-    "name": "covid",
+    "name": "Estatísticas COVID-19",
+    "icon": "./assets/icon.png",
     "slug": "covid",
     "privacy": "unlisted",
     "sdkVersion": "36.0.0",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "entryPoint": "node_modules/expo/AppEntry.js",
     "platforms": [
       "ios",
-      "android",
-      "web"
-    ]
+      "android"
+    ],
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor":"#f4511e"
+    },
+    "ios": {
+      "bundleIdentifier": "com.vmvr.covidstats",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.vmvr.covidstats",
+      "versionCode": 1
+    }
   }
 }

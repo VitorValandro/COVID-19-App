@@ -34,6 +34,10 @@ export default class Info extends Component {
                     <Text style={{ color: '#555' }}>É isenta a responsabilidade de toda e qualquer garantia ou confirmação, incluindo precisão, adequação, uso e comercialização.</Text>
                     <Text style={{ color: '#555' }}>O software tem fins únicos e exclusivos de aprendizagem e educação, sendo estritamente inapto para orientação médica ou uso comercial.</Text>
                 </View>
+                <View style={styles.footer}>
+                    <Text style={{textAlign:'center'}}>Desenvolvido por Vitor Valandro da Rosa</Text>
+                    <Text style={{ textAlign: 'center' }}>21/03/2020</Text>
+                </View>
             </ScrollView>
         );
     }
@@ -51,5 +55,10 @@ const styles = StyleSheet.create({
         color: '#f4511e',
         textDecorationLine:'underline',
         marginBottom:5
+    },
+    footer:{
+        marginTop:20,
+        paddingTop:10,
+        backgroundColor:'#fafafa'
     }
 })

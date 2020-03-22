@@ -10,7 +10,7 @@ import * as translate from './translation.js';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoading: true, isLoading2:true, search: '' };
+    this.state = { isLoading: true, isLoading2:true, search: '', dataWorld: '' };
     this.arrayholder = [];
   }
 
@@ -76,14 +76,26 @@ export default class App extends Component {
 
     this.setState({
       dataSource: newData,
+ 
       search: text,
     });
   }
 
   render() {
-    console.log(this.state.dataWorld)
     const { navigation } = this.props;
-    
+    var WorldStats;
+    if(this.state.search == ''){
+      WorldStats = <View style={styles.worldContainer}>
+        <Text style={styles.countryTitle}>Mundo</Text>
+        <Text style={styles.countryDescription}>Novos Casos: {this.state.dataWorld.new_cases}</Text>
+        <Text style={styles.countryDescription}>Novos Óbitos: {this.state.dataWorld.new_deaths}</Text>
+        <Text></Text>
+        <Text style={styles.countryDescription}>Total de casos registrados: {this.state.dataWorld.total_cases}</Text>
+        <Text style={styles.countryDescription}>Total de óbitos registrados: {this.state.dataWorld.total_deaths}</Text>
+        <Text style={styles.countryDescription}>Total de vítimas recuperadas: {this.state.dataWorld.total_recovered}</Text>
+      </View>
+    }
+
     if (this.state.isLoading || this.state.isLoading2) {
       return (
         <View style={{ flex: 1, padding: 20 }}>
@@ -106,15 +118,7 @@ export default class App extends Component {
             containerStyle={{backgroundColor:'transparent', border:0}}
               lightTheme='true'
           />
-            <View style={styles.worldContainer}>
-              <Text style={styles.countryTitle}>Mundo</Text>
-              <Text style={styles.countryDescription}>Novos Casos: {this.state.dataWorld.new_cases}</Text>
-              <Text style={styles.countryDescription}>Novos Óbitos: {this.state.dataWorld.new_deaths}</Text>
-              <Text></Text>
-              <Text style={styles.countryDescription}>Total de casos registrados: {this.state.dataWorld.total_cases}</Text>
-              <Text style={styles.countryDescription}>Total de óbitos registrados: {this.state.dataWorld.total_deaths}</Text>
-              <Text style={styles.countryDescription}>Total de vítimas recuperadas: {this.state.dataWorld.total_recovered}</Text>
-            </View>
+            {WorldStats}
           <FlatList
             contentContainerStyle={styles.list}
             data={this.state.dataSource}

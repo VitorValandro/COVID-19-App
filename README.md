@@ -9,3 +9,5 @@ API's usadas nesse projeto:
 
 - https://github.com/pomber/covid19
 - https://rapidapi.com/astsiatsko/api/coronavirus-monitor
+
+[Download APK](https://expo.io/artifacts/a52b36ce-d7d4-4939-a0ba-2b68ca7ede24)

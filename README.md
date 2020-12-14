@@ -36,4 +36,4 @@ APIs used in this project:
 
 [Download APK](https://expo.io/artifacts/a52b36ce-d7d4-4939-a0ba-2b68ca7ede24)
 
-###### Vitor Matheus Valandro da Rosa. March 2019.
+###### Vitor Matheus Valandro da Rosa. March 2020.
